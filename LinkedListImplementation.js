@@ -68,7 +68,7 @@ class LinkedList {
     leader.next = newNode;
     newNode.next = holdingPointer;
     this.length++;
-    return this;
+    return this; 
   }
   remove(index) {
     //check params
@@ -76,7 +76,7 @@ class LinkedList {
     const holderPointer = leader.next.next;
     leader.next=holderPointer;
     this.length--;
-    return this.printList()
+    return this
   }
   _traverseListToIndex(index) {
     let counter = 0;
@@ -87,6 +87,30 @@ class LinkedList {
     }
     return currentNode;
   }
+  reverse(){
+    //check params 
+    if(!this.head.next){
+      return this.head;
+    }
+
+    let current = this.head;
+    let prev = null;
+    let next;
+
+    while (current!==null){
+      next= current.next
+      current.next= prev;
+      prev=current;
+      current= next;
+    }
+    this.tail=this.head
+    this.head=prev;
+    
+    console.log(
+      util.inspect(this, { showHidden: false, depth: null, colors: true })
+    );
+    return this;
+  }
 }
 
 let myLinkedList = new LinkedList(10);
@@ -94,6 +118,9 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
 myLinkedList.insert(3, 9);
-myLinkedList.remove(3);
+
+myLinkedList.printList();
+myLinkedList.reverse();
+myLinkedList.printList();
 
 // myLinkedList.printList();

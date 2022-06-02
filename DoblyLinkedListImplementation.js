@@ -83,6 +83,26 @@ class LinkedList {
     }
     return currentNode;
   }
+  reverse(){
+    //check params 
+    if(!this.head.next){
+      return this.head;
+    }
+
+    let current = this.head;
+    let prev = null;
+    let next;
+
+    while (current!==null){
+      next= current.next
+      current.next= prev;
+      prev=current;
+      current= next;
+    }
+    this.head=prev;
+    
+    return this.printList();
+  }
 }
 
 let myLinkedList = new LinkedList(10);
