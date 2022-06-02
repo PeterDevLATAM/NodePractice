@@ -29,9 +29,13 @@ class Stack {
   }
   pop() {
     if (!this.top) return null;
-    const holderPointer = this.top.next;
-    this.top = holderPointer;
+    if(this.top=== this.bottom){
+        this.bottom=null
+    }
+    const holderPointer = this.top;// I could do this if i dont want this node to be deleted from memory.
+    this.top = this.top.next;
     this.length--;
+    return this
   }
   //isEmpty
 }
