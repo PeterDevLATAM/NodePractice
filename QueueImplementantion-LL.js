@@ -34,8 +34,8 @@ class Queue {
     if (this.first=== this.last){
       this.last=null;
     }
-    const second = this.first.next
-    this.first= second;
+    const holdingPointer = this.first // if we want to hold on the deleted node. 
+    this.first= this.first.next;
     this.length--;
     console.log(this);
     return this
