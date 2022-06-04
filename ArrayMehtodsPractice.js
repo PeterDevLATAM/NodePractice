@@ -33,7 +33,7 @@ console.log(groupedPeople);
 
 // Counting instances of a value in an object
 
-/* const names = ["Alice", "Bob", "Tiff", "Bruce", "Alice"];
+const names = ["Alice", "Bob", "Tiff", "Bruce", "Alice"];
 
 const countNames = (names) => {
 
@@ -49,11 +49,11 @@ const countNames = (names) => {
 
 console.log(countNames(names));
 
- */
+
 
 // Bounding arrays from an array of object using the spread operator
 
-const friends = [
+/* const friends = [
   {
     name: "Anna",
     books: ["Bible", "Harry Potter"],
@@ -78,3 +78,4 @@ const boundArrays = (arr) => {
 };
 
 console.log(boundArrays(friends));
+ */
