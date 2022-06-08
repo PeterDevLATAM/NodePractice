@@ -11,10 +11,11 @@ var obj2 = {
   name: "Steve Smith",
 };
 
-obj2._proto_  
+// obj2.__proto__  = obj1
+// obj2.displayName()
 
 // var boundedFn = obj1.displayName.bind(obj2)
 // boundedFn()
 
-// obj1.displayName.call(obj2)
-// obj1.displayName.apply(obj2)
+// obj1.displayName.call(obj2);
+// obj1.displayName.apply(obj2); // idk
