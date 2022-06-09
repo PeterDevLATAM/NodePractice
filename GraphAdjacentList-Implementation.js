@@ -8,10 +8,17 @@ class Graph {
     this.numberOfNodes++;
   }
   addEdge(node1, node2) {
-    if(!this.adjacentList[node1] || !this.adjacentList[node2]) return new Error("Incorrect Input")
-    this.adjacentList[node1].push(node2);
-    this.adjacentList[node2].push(node1);
-    return this
+    if (!this.adjacentList[node1] || !this.adjacentList[node2]) {
+      const error = new Error("Incorrect Input");
+      throw error;
+    }
+
+    if (!this.adjacentList[node1].find((element) => element === node2))
+      this.adjacentList[node1].push(node2);
+    if (!this.adjacentList[node2].find((element) => element === node1))
+      this.adjacentList[node2].push(node1);
+
+    return this;
   }
   showConnections() {
     const allNodes = Object.keys(this.adjacentList);
@@ -35,14 +42,14 @@ myGraph.addVertex("3");
 myGraph.addVertex("4");
 myGraph.addVertex("5");
 myGraph.addVertex("6");
-myGraph.addEdge("3", "1");
+myGraph.addEdge("0", "1");
 myGraph.addEdge("3", "4");
 myGraph.addEdge("4", "2");
 myGraph.addEdge("4", "5");
 myGraph.addEdge("1", "2");
 myGraph.addEdge("1", "0");
 myGraph.addEdge("0", "2");
-console.log(myGraph.addEdge("6", "5"))
+console.log(myGraph.addEdge("6", "5"));
 
 myGraph.showConnections();
 //Answer:
