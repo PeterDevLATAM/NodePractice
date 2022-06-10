@@ -42,7 +42,7 @@ myGraph.addVertex("3");
 myGraph.addVertex("4");
 myGraph.addVertex("5");
 myGraph.addVertex("6");
-myGraph.addEdge("0", "1");
+myGraph.addEdge("3", "1");
 myGraph.addEdge("3", "4");
 myGraph.addEdge("4", "2");
 myGraph.addEdge("4", "5");
