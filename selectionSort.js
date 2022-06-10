@@ -1,6 +1,6 @@
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
-function selectionSort(arr) {
+function selectionSort(arr) { // Also cuadratic
   for (let i = 0; i < arr.length; i++) {
     let sm = {
       value: arr[i],
