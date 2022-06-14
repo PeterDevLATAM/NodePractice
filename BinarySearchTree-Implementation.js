@@ -1,5 +1,13 @@
 const util = require("util");
 
+function traverse(node) {
+  const tree = { value: node.value };
+  tree.left = node.left === null ? null : traverse(node.left);
+  tree.right = node.right === null ? null : traverse(node.right);
+  return tree;
+}
+
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -157,6 +165,48 @@ class BinarySearchTree {
 
     return this.breathSearchFirstRecursive(queue, list);
   }
+
+  DFSInorder() {
+    return this.traverseInorder(this.root, []);
+  }
+  DFSPreorder() {
+    return this.traversePreorder(this.root, []);
+  }
+  DFSPostorder() {
+    return this.traversePostorder(this.root, []);
+  }
+
+  traverseInorder(node, list) {
+    if (node.left) {
+      this.traverseInorder(node.left, list);
+    }
+    list.push(node.value);
+    if (node.right) {
+      this.traverseInorder(node.right, list);
+    }
+    return list;
+  }
+  traversePreorder(node, list) {
+    list.push(node.value);
+    if(node.left){
+      this.traversePreorder(node.left, list);
+    }
+    if(node.right){
+      this.traversePreorder(node.right, list)
+    }
+    return list;
+  }
+  traversePostorder(node, list) {
+    if(node.left){
+      this.traversePostorder(node.left, list);
+    }
+    if(node.right){
+      this.traversePostorder(node.right, list)
+    }
+    list.push(node.value);
+
+    return list;
+  }
 }
 const tree = new BinarySearchTree();
 tree.insert(9);
@@ -166,16 +216,14 @@ tree.insert(20);
 tree.insert(170);
 tree.insert(15);
 tree.insert(1);
-traverse(tree.root);
-console.log(tree.breathSearchFirstRecursive([tree.root], []));
+// traverse(tree.root);
+// console.log(tree.breathSearchFirstRecursive([tree.root], []));
+
+console.log("Inorder",tree.DFSInorder())
+console.log("Preorder",tree.DFSPreorder())
+console.log("Postorder",tree.DFSPostorder())
 
 //     9
 //  4     20
 //1  6  15  170
 
-function traverse(node) {
-  const tree = { value: node.value };
-  tree.left = node.left === null ? null : traverse(node.left);
-  tree.right = node.right === null ? null : traverse(node.right);
-  return tree;
-}
