@@ -1,4 +1,4 @@
-const { channel } = require("diagnostics_channel");
+import { channel } from "diagnostics_channel";
 
 let counter = 0;
 function fibonacciMemoized() {
